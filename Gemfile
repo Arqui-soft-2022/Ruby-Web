@@ -31,6 +31,7 @@ gem 'httparty'
 
 gem 'rest-client'
 gem 'json'
+gem 'libnotify'
 
 
 # Use Redis adapter to run Action Cable in production
