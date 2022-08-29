@@ -4,7 +4,7 @@ require 'json'
 class LoginController < ApplicationController
   
   def home
-    puts "golax"
+    
   end
 
   def iniciar_sesion
@@ -19,6 +19,7 @@ class LoginController < ApplicationController
       headers: { "Content-Type" => "application/json" })
       
       #LEER
+      puts response
       puts "Se redigire a la pagina despues del logueo"
   end
 end
