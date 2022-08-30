@@ -6,12 +6,12 @@ class LoginController < ApplicationController
   def home
     response = HTTParty.post("https://codeqr-generate.herokuapp.com/api/auth/login",
       body: { 
-        username: "prueba", 
+        username: "prueba",
         password: "prueba",
       }.to_json,
       headers: { "Content-Type" => "application/json" })
-
-      if response.code != 200
+      puts response.code
+      if response.code != 404
         n = Libnotify.new do |notify|
           notify.summary    = "Ha ocurrido un error en el sistema"
           notify.body       = "Vuelve a intentarlo mas tarde"
