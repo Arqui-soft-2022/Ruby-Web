@@ -4,7 +4,9 @@ require 'json'
 class LoginController < ApplicationController
   
   def home
-    response = HTTParty.post("https://codeqr-generate.herokuapp.com/api/auth/login",
+    #url johnny https://codeqr-generate-johnny.herokuapp.com/
+      #url api https://codeqr-generate.herokuapp.com
+    response = HTTParty.post("https://codeqr-generate-johnny.herokuapp.com//api/auth/login",
       body: { 
         username: "prueba",
         password: "prueba",
@@ -28,8 +30,9 @@ class LoginController < ApplicationController
   def iniciar_sesion
     username = params[:username]
     password = params[:password]
-
-    response = HTTParty.post("https://codeqr-generate.herokuapp.com/api/auth/login",
+    #url johnny https://codeqr-generate-johnny.herokuapp.com/
+      #url api https://codeqr-generate.herokuapp.com
+    response = HTTParty.post("https://codeqr-generate-johnny.herokuapp.com/api/auth/login",
       body: { 
         username: username, 
         password: password,
@@ -47,7 +50,7 @@ class LoginController < ApplicationController
         end
           n.show!
         sleep 2
-        redirect_to "/generate_qr/createQR"
+        redirect_to "/generate_qr/createQR/user/#{response["usuario"]["id_usuario"]}"
         elsif response.code == 400 || response.code == 404
           n = Libnotify.new do |notify|
             notify.summary    = "Datos incorrectos"

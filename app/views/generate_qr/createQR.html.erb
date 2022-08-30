@@ -1,34 +1,24 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
-
+<%= render :template => "navbar" %>
 <main class="flex w-100 items-center justify-center min-h-screen flex-col">
     <h1 class="text-2xl md:text-4xl font-semibold text-white mb-5">Generate su código QR</h1>
     <div class="md:flex">
         <section
             class="bg-white rounded-2xl py-10 px-4 md:px-10 lg:px-16 lg:py-12 w-full md:w-3/5 mr-3 flex items-center justify-center">
             <article class="text-center">
-                <form class="mt-5" action="">
+                <form class="mt-5" action="/create/<%=@id%>" method="GET" >
                     <p class="text-xl mb-3">Sitio web (URL)</p>
                     <input
                         class="shadow appearance-none border rounded-xl w-full py-3 px-3 text-gray-700 mb-5 border-zinc-500"
-                        type="text">
+                        type="text" name="url" placeholder="<%=@url%>">
                     <button
                         class="bg-appweb-2 text-white font-semibold transform hover:scale-105 duration-300 transition-all hover:bg-blue-800 text-xl py-3 px-12 rounded-xl"><i
                             class="fa-solid fa-arrows-rotate mr-3"></i>Generar código QR</button>
                 </form>
             </article>
         </section>
-        <section class="bg-white rounded-2xl py-10 px-4 md:px-10 lg:px-16 lg:py-12 w-full md:w-2/5 mt-3 md:mt-0">
-            <article class="text-center">
-                <p class="text-2xl font-semibold">Código QR</p>
-                <img class="h-40 w-40 mx-auto mb-3"
-                    src="https://www.ocu.org/-/media/ta/images/qr-code.png?rev=2e1cc496-40d9-4e21-a7fb-9e2c76d6a288&hash=AF7C881FCFD0CBDA00B860726B5E340B&mw=960"
-                    alt="QR">
-                <button
-                    class="bg-appweb-2 text-white font-semibold transform hover:scale-105 duration-300 transition-all hover:bg-blue-800 text-xl py-3 px-12 rounded-xl">Exportar
-                    QR</button>
-            </article>
-        </section>
+        <%= render :partial => 'view_img_QR'%>
     </div>
 </main>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
