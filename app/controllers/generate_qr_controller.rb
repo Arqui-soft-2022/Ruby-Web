@@ -15,12 +15,14 @@ class GenerateQrController < ApplicationController
       @url_codeImage = "https://thumbs.dreamstime.com/b/icono-de-ejemplo-c%C3%B3digo-qr-con-texto-hola-156385931.jpg"
     else
       response = HTTParty.post("https://codeqr-generate2.herokuapp.com/api/code/",
-        body: { 
+        body: {
           url: @url, 
           user: @id,
         }.to_json,
         headers: { "Content-Type" => "application/json" })
         @url_codeImage = response["qr_code"]["url_code"]
+        cookies[:url_codeGenerate] = @url_codeImage
     end
   end
+  
 end

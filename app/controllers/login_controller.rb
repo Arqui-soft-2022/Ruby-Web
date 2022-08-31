@@ -13,7 +13,7 @@ class LoginController < ApplicationController
       }.to_json,
       headers: { "Content-Type" => "application/json" })
       puts response.code
-      if response.code != 400
+      if response.code != 404
         n = Libnotify.new do |notify|
           notify.summary    = "Ha ocurrido un error en el sistema"
           notify.body       = "Vuelve a intentarlo mas tarde"
@@ -51,7 +51,7 @@ class LoginController < ApplicationController
           n.show!
           cookies[:id] = response["usuario"]["id_usuario"]
         redirect_to "/generate_qr/createQR/user"
-        elsif response.code == 400 || response.code == 404
+      elsif response.code == 404
           n = Libnotify.new do |notify|
             notify.summary    = "Datos incorrectos"
             notify.body       = "Por favor verifica los datos"
