@@ -1,16 +1,40 @@
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<nav class="w-4/5 mx-auto">
-    <ul class="flex justify-end">
-        <li class="flex items-center">
-            <a class="text-white" href="">
-                <i class="fas fa-user text-xl"></i>
-                User1
+<nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900" style="background:#afb3d2">
+  <div class="container flex flex-wrap flex-row-reverse px-20 justify-between items-center mx-auto">
+  <div class="flex items-center md:order-2" style="right:50px">
+      <button type="button" style="background:#fff !important" class="flex mr-4 text-sm rounded-full md:mr-0 focus:ring-5 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <svg class="h-11 w-14" style="backgroung:#fff !important" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg>
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block" id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(589px, 82px);">
+        
+        <ul class="py-1 px-1" aria-labelledby="user-menu-button">
+        <li>
+            <a href="/generate_qr/createQR/user" class="block py-2 px-18 text-sm text-gray-800 hover:bg-black-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <svg class="h-7 w-7 text-black inline px-1 py-1"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="6" height="6" rx="1" />  <line x1="7" y1="17" x2="7" y2="17.01" />  <rect x="14" y="4" width="6" height="6" rx="1" />  <line x1="7" y1="7" x2="7" y2="7.01" />  <rect x="4" y="14" width="6" height="6" rx="1" />  <line x1="17" y1="7" x2="17" y2="7.01" />  <line x1="14" y1="14" x2="17" y2="14" />  <line x1="20" y1="14" x2="20" y2="14.01" />  <line x1="14" y1="14" x2="14" y2="17" />  <line x1="14" y1="20" x2="17" y2="20" />  <line x1="17" y1="17" x2="20" y2="17" />  <line x1="20" y1="17" x2="20" y2="20" /></svg>Generar QR
             </a>
-        </li>
-    </ul>
+          </li>
+          <li>
+            <a href="/listar_qr/listarQR/" class="block py-2 px-18 text-sm text-gray-800 hover:bg-black-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <svg class="h-6 w-6 text-black inline px-1 py-1"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polyline points="1 4 1 10 7 10" />  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" /></svg>Historial
+            </a>
+          </li>
+          <li>
+            <a href="/" class="block py-2 px-18 text-sm text-gray-800 hover:bg-black-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <svg class="h-6 w-6 text-black inline px-1 py-1"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />  <path d="M7 12h14l-3 -3m0 6l3 -3" /></svg>Cerrar Sesion
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+
+  </div>
 </nav>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>

@@ -4,25 +4,23 @@ class GenerateQrController < ApplicationController
   after_action :createQR
 
   def createQR
-    @id = params[:id]
+    @id= cookies[:id] 
   end
 
   def generateQR
     @url = params[:url]
-    @id = params[:id]
+    @id= cookies[:id] 
     if @url.blank?
-      @url = "https://github.com/Arqui-soft-2022"
+      @url = "https://thumbs.dreamstime.com/b/icono-de-ejemplo-c%C3%B3digo-qr-con-texto-hola-156385931.jpg"
+      @url_codeImage = "https://thumbs.dreamstime.com/b/icono-de-ejemplo-c%C3%B3digo-qr-con-texto-hola-156385931.jpg"
+    else
+      response = HTTParty.post("https://codeqr-generate2.herokuapp.com/api/code/",
+        body: { 
+          url: @url, 
+          user: @id,
+        }.to_json,
+        headers: { "Content-Type" => "application/json" })
+        @url_codeImage = response["qr_code"]["url_code"]
     end
-      #url johnny https://codeqr-generate-johnny.herokuapp.com/
-      #url api https://codeqr-generate.herokuapp.com
-      
-    response = HTTParty.post("https://codeqr-generate.herokuapp.com/api/code/",
-      body: { 
-        url: @url, 
-        user: @id,
-      }.to_json,
-      headers: { "Content-Type" => "application/json" })
-      @url_codeImage = response["qr_code"]["url_code"]
-
-      end
+  end
 end

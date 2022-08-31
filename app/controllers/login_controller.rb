@@ -6,14 +6,14 @@ class LoginController < ApplicationController
   def home
     #url johnny https://codeqr-generate-johnny.herokuapp.com/
       #url api https://codeqr-generate.herokuapp.com
-    response = HTTParty.post("https://codeqr-generate-johnny.herokuapp.com//api/auth/login",
+    response = HTTParty.post("https://codeqr-generate2.herokuapp.com/api/auth/login",
       body: { 
         username: "prueba",
         password: "prueba",
       }.to_json,
       headers: { "Content-Type" => "application/json" })
       puts response.code
-      if response.code != 404
+      if response.code != 400
         n = Libnotify.new do |notify|
           notify.summary    = "Ha ocurrido un error en el sistema"
           notify.body       = "Vuelve a intentarlo mas tarde"
@@ -32,7 +32,7 @@ class LoginController < ApplicationController
     password = params[:password]
     #url johnny https://codeqr-generate-johnny.herokuapp.com/
       #url api https://codeqr-generate.herokuapp.com
-    response = HTTParty.post("https://codeqr-generate-johnny.herokuapp.com/api/auth/login",
+    response = HTTParty.post("https://codeqr-generate2.herokuapp.com/api/auth/login",
       body: { 
         username: username, 
         password: password,
@@ -49,8 +49,8 @@ class LoginController < ApplicationController
           notify.transient  = true        # default false - keep the notifications around after display
         end
           n.show!
-        sleep 2
-        redirect_to "/generate_qr/createQR/user/#{response["usuario"]["id_usuario"]}"
+          cookies[:id] = response["usuario"]["id_usuario"]
+        redirect_to "/generate_qr/createQR/user"
         elsif response.code == 400 || response.code == 404
           n = Libnotify.new do |notify|
             notify.summary    = "Datos incorrectos"

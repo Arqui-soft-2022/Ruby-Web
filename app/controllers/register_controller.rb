@@ -13,7 +13,7 @@ class RegisterController < ApplicationController
 
     if validarDatos
       #hacer las peticion
-      response = HTTParty.post("https://codeqr-generate.herokuapp.com/api/auth/register",
+      response = HTTParty.post("https://codeqr-generate2.herokuapp.com/api/auth/register",
         body: { 
           username: @username, 
           password: @password,
