@@ -8,7 +8,6 @@ This project is based on the generation of QR codes by means of a URL, where it 
 
 These instructions will allow you to install correctly the Ruby web project
 
-
 ### Prerequisites 📋
 
 - Git
@@ -28,6 +27,6 @@ These instructions will allow you to install correctly the Ruby web project
  - git add .
  - git -m commit "my first commit"
 2. Clone the repository 
-- git clone https://github.com/Arqui-soft-2022/Javascript-web or download the source code.
+- git clone https://github.com/Arqui-soft-2022/Ruby-Web or download the source code.
 
 - [More information about the installation](https://drive.google.com/drive/u/1/folders/1PYcbWEnJLvFu3v0EejaBZsBlSI-8OW9h)
