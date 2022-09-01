@@ -22,6 +22,7 @@ class GenerateQrController < ApplicationController
         headers: { "Content-Type" => "application/json" })
         @url_codeImage = response["qr_code"]["url_code"]
         cookies[:url_codeGenerate] = @url_codeImage
+        
     end
   end
   

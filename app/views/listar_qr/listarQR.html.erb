@@ -11,19 +11,26 @@
 	  <br>
         <section class="bg-white rounded-2xl py-10 px-4 md:px-10 lg:px-12 lg:py-6 w-full">
             <article class="md:flex items-center">
-                <div class="mt-5">
+            <div class =" grid grid-flow-col auto-cols-max">
+                <div class = "">
+                    <div class="mt-5">
                     <p class="text-2xl mb-3 font-semibol text-center md:text-left"><%=item["type"]%></p>
                     <hr class="border-black">
                     <p class="mt-3 text-lg"><%=item["url"]%></p>
                 </div>
-                <div class="md:ml-5 mt-3 text-center">
+                </div>
+                <div class = "grid col-end-10">
+                    <div class="md:ml-5 mt-3 text-center">
                     <img class="h-120 w-120 mx-auto mb-3" 
                         src="<%=item["url_code"]%>"
                         alt="QR">
-                    <button
-                        class="bg-appweb-2 text-white font-semibold transform hover:scale-105 duration-300 transition-all hover:bg-blue-800 text-lg py-3 px-3 rounded-xl">Exportar
-                        QR</button>
+                    <a href="<%=item["url_code"]%>" class="bg-appweb-2 text-white font-semibold transform hover:scale-105 duration-300 transition-all hover:bg-blue-800 text-xl py-3 px-12 rounded-xl" download>
+                    Exportar QR
+                    </a>
                 </div>
+                </div>
+            </div>
+            
             </article>
         </section>
 		<% end %>
